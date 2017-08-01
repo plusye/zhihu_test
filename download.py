@@ -35,6 +35,7 @@ def download(url):
 	# "http://182.16.69.184:80", "http://183.169.128.30:80", \
 	# "http://120.76.55.49:8088", "http://200.189.117.51:808"]
 	try:
+		print(ips1)
 		index = random.randint(0,79)
 		proxy = ips1[index]
 		proxy_support = request.ProxyHandler({'http':proxy})
@@ -49,4 +50,4 @@ def download(url):
 		html = request.urlopen(webReq).read().decode('utf-8')
 		return html
 	except error.HTTPError as e:
-		print(e.code, e.reason, e.header)
+		print(e.code, e.reason)
