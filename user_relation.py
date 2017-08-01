@@ -43,7 +43,6 @@ class Controller(User_info):
 	def enum_by_item(self):
 		self.get_page()
 		self.save_url_token()	
-		print("第一次")
 		while self.is_end is False:
 			time.sleep(2)
 			t2 = threading.Thread(target = self.change_url_item, name = "loop2")
