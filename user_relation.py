@@ -54,9 +54,6 @@ class Controller(User_info):
 			t2.join(3)
 			t3.join(3)
 			t4.join(3)
-			#self.change_url_item()
-			#self.get_page()
-			#self.save_url_token()
 		self.item = 0
 		#redis中set的长度
 		self.sets_length = redis.get_length("unEnum")
@@ -64,6 +61,7 @@ class Controller(User_info):
 		pop_url =  redis.pop(self.sets_length)
 		#改变URL
 		self.change_url_token(pop_url)
+		time.sleep(5)
 		if self.sets_length != 0:
 			t5 = threading.Thread(target = self.get_page, name = "loop3")
 			time.sleep(5)
@@ -76,4 +74,3 @@ class Controller(User_info):
 			# self.enum_by_item()
 
 yejia = Controller()
-
